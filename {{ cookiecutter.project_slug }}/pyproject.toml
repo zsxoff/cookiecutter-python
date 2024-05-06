@@ -1,0 +1,85 @@
+[tool.poetry]
+name = "{{ cookiecutter.project_name }}"
+version = "0.1.0"
+description = ""
+authors = []
+readme = "README.md"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.12"
+
+[tool.poetry.group.dev.dependencies]
+bandit = "1.7.8"
+black = "24.4.2"
+isort = "5.13.2"
+mypy = "1.10.0"
+pre-commit = "3.7.0"
+ruff = "0.4.3"
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "1.6.0"
+mkdocs-material = "9.5.21"
+mkdocstrings = { extras = ["python"], version = "0.25.1" }
+
+[tool.bandit]
+exclude_dirs = ["tests"]
+
+[tool.black]
+line-length = 120
+target-version = ["py311"]
+
+[tool.isort]
+profile = "black"
+line_length = 120
+lines_between_sections = 1
+
+[tool.mypy]
+python_version = "3.11"
+files = ["."]
+exclude = ["^.venv/"]
+check_untyped_defs = true
+no_implicit_reexport = true
+warn_redundant_casts = true
+warn_unreachable = true
+warn_unused_configs = true
+warn_unused_ignores = true
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+lint.select = [
+  "E4", # default value - pycodestyle
+  "E7", # default value - pycodestyle
+  "E9", # default value - pycodestyle
+  "F",  # default value - Pyflakes
+]
+
+[tool.ruff.format]
+line-ending = "lf"
+docstring-code-format = true
+docstring-code-line-length = 120
+
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = "double"
+
+[tool.ruff.lint.isort]
+lines-after-imports = 1
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = [
+  "D104", # Checks for undocumented public package definitions.
+]
+"*.py" = [
+  "ANN101", # Checks that instance method `self` arguments have type annotations.
+  "ANN102", # Checks that class method `cls` arguments have type annotations.
+]
