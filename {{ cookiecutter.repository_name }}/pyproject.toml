@@ -17,8 +17,8 @@ bandit = "1.7.8"
 black = "24.4.2"
 isort = "5.13.2"
 mypy = "1.10.0"
-pre-commit = "3.7.0"
-ruff = "0.4.3"
+pre-commit = "3.7.1"
+ruff = "0.4.5"
 
 [tool.poetry.group.docs]
 optional = true
@@ -55,10 +55,10 @@ warn_unused_ignores = true
 target-version = "py311"
 line-length = 120
 lint.select = [
-  "E4", # default value - pycodestyle
-  "E7", # default value - pycodestyle
-  "E9", # default value - pycodestyle
-  "F",  # default value - Pyflakes
+    "E4", # default value - pycodestyle
+    "E7", # default value - pycodestyle
+    "E9", # default value - pycodestyle
+    "F",  # default value - Pyflakes
 ]
 
 [tool.ruff.format]
@@ -77,9 +77,9 @@ max-complexity = 10
 
 [tool.ruff.lint.per-file-ignores]
 "__init__.py" = [
-  "D104", # Checks for undocumented public package definitions.
+    "D104", # Checks for undocumented public package definitions.
 ]
 "*.py" = [
-  "ANN101", # Checks that instance method `self` arguments have type annotations.
-  "ANN102", # Checks that class method `cls` arguments have type annotations.
+    "ANN101", # Checks that instance method `self` arguments have type annotations.
+    "ANN102", # Checks that class method `cls` arguments have type annotations.
 ]
